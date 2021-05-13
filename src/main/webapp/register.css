@@ -1,0 +1,103 @@
+* {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+	font-family: sans-serif;
+	background-image: url(images/fondoregistro.jpg);
+	background-size: cover;
+}
+
+.box {
+	max-width: 100%;
+	width: 50%;
+	height: 90%;
+	padding: 15px;
+	position: absolute;
+	top: 45%;
+	left: 48%;
+	transform: translate(-50%, -50%);
+	opacity: 0.9;
+	background: #F7F3F0;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+	color: black;
+	font-size: 18px;
+	text-align: center;
+	border-radius: 25px;
+	flex-wrap: wrap;
+	margin: 20px;
+}
+.box input[type="text"], .box input[type="password"]{
+	background: #161616c5;
+	display: block;
+	margin: 0px;
+	text-align: center;
+	border: 2px solid #2e2c2c;
+	padding: 1 px;
+	width: 50%;
+	outline: none;
+	color: rgb(255, 255, 255);
+	border-radius: 18px;
+	transition: 0.5s;
+	float:center;
+	margin-left:25%;
+}
+
+.box input[type="text"]:hover, .box input[type="password"]:hover {
+	background: #d8d8d8;
+	color: black;
+	float:center;
+	transform: scale(0.9);
+}
+
+
+.box button[value="register"] {
+	color: black;
+	border-color: #2b7e4d;
+	width: 30%;
+	font-size: 15px;
+	margin: 0px;
+	text-align: center;
+	border: 2px;
+	padding: 10px;
+	outline: none;
+	background: #5fca8c;
+	border-radius: 18px;
+	transition: 0.25s;
+	cursor: pointer;
+	display: inline;
+	float: center;
+	margin-right: 5px;
+}
+
+.box button[value="register"]:hover {
+	background: #398558;
+	color: whitesmoke;
+	transform: scale(0.9);
+}
+
+.box button[value="volver"] {
+	border: 2px;
+	border-color: #ac0606;
+	opacity: 0.9;
+	width: 30%;
+	font-size: 15px;
+	text-align: center;
+	padding: 10px;
+	outline: none;
+	background: #e74141a4;
+	color: black;
+	border-radius: 18px;
+	transition: 0.25s;
+	cursor: pointer;
+	display: inline;
+	float: center;
+	margin-right: 8px;
+}
+
+.box button[value="volver"]:hover {
+	background: #af4a4a;
+	color: whitesmoke;
+	transform: scale(0.9);
+}
