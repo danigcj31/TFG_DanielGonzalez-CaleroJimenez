@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- CUSTOM CSS -->
+<link rel="stylesheet" href="mapasRendimiento.css">
+<title>Mapas Rendimiento</title>
+<link rel="shortcut icon" href="http://example.com/myicon.ico" />
+<!-- ICONOS -->
+<script src="https://kit.fontawesome.com/2fdbb0a0af.js" crossorigin="anonymous"></script>
+<!-- FAVICON -->
+<link rel="icon" href="images/logo.PNG" type="image/ico"/>
+</head>
+
+<body>
+	
+	<form class="col-md-6 col-sm-8 col-xl-6 col-lg-4 boxHeader" action="mapasRendimiento.html" method="post">
+		<b style="margin-top:50px;">MAPAS DE RENDIMIENTO</b>
+		<button type="button" value="volver" onclick="window.history.back()" id="goToIndex">VOLVER</button>
+	</form>
+	
+	<form class="col-md-6 col-sm-8 col-xl-6 col-lg-4 boxBody" action="index.html" method="post">
+		<br>
+		<input id="subirArchivo" type="file">		
+		<a id="plantilla" href="docs/Plantilla.xlsx" download="Plantilla.xlsx">DESCARGAR PLANTILLA</a>	
+		<a id="manual" href="docs/Manual-MapasRendimiento.pdf" download="Manual-MapasRendimiento.pdf">¿CÓMO TOMAR LOS DATOS?</a>	
+		<hr size="10px" color="white">
+		<div id="equipo_local" value="equipo_local"></div>
+		<div id="goles_local" value="goles_local"></div>
+		<p value="guion" style="display:flex"> - </p> 
+		<div id="goles_visitante" value="goles_visitante"></div>
+		<div id="equipo_visitante" value="equipo_visitante"></div>
+		<p id="categorias1"> EQUIPO LOCAL</p>
+		<p id="categorias2"> EQUIPO LOCAL(POSICIONAL)</p>
+		<p id="categorias3"> EQUIPO VISITANTE</p>
+		<p id="categorias4"> EQUIPO VISITANTE(POSICIONAL)</p>
+		<div style="display:flex;width: 100%;">
+			<img id="imagenBD1" style="width: 15%; margin-right:10%; margin-left:5%">
+			<img id="imagenBD2" style="width: 15%;margin-right:10%">
+			<img id="imagenBD3" style="width: 15%;margin-right:10%">
+			<img id="imagenBD4" style="width: 15%;margin-right:10%">
+		</div>
+		<br><br>
+		<div id="div_local" value="div_local">
+			<div id="ritmo_local" value="ritmo_local" style="margin-bottom: 0%"></div>
+			<hr>
+			<div id="at_posicional_local" value="at_posicional_local" style="margin-bottom: 0%"></div>
+			<hr>
+			<div id="contraataque_local" value="contraataque_local"></div>
+			<hr>
+			<div id="saquegol_local" value="saquegol_local"></div>
+			<hr>
+			<div id="perdidas_local" value="perdidas_local"></div>
+			<hr>
+			<div id="superioridad_local" value="superioridad_local"></div>
+			<hr>
+			<div id="paradas_local" value="paradas_local"></div>
+			<hr>
+			<div id="defensa_local" value="defensa_local"></div>
+			<hr>
+			<div id="ataque_local" value="ataque_local"></div>
+			<hr>
+			<div id="penalti_local" value="penalti_local"></div>
+			<hr>
+			<div id="gol7m_local" value="gol7m_local"></div>
+			<hr>
+			<div id="a7x6_local" value="a7x6_local"></div>
+		</div>
+		<div id="div_stats">
+			<p> RITMO </p>
+			<hr>
+			<p> AT. POSICIONAL </p>
+			<hr>
+			<p> CONTRATAQUE </p>
+			<hr>
+			<p> SAQUE GOL </p>
+			<hr>
+			<p> PERDIDAS </p>
+			<hr>
+			<p> SUPERIORIDAD </p>
+			<hr>
+			<p> PARADAS </p>
+			<hr>
+			<p> DEFENSA </p>
+			<hr>
+			<p> ATAQUE </p>
+			<hr>
+			<p> 7M </p>
+			<hr>
+			<p> GOLES 7M </p>
+			<hr>
+			<p> 7x6 </p>
+		</div>
+		<div id="div_visitante">
+			<div id="ritmo_visitante" value="ritmo_visitante"></div>
+			<hr>
+			<div id="at_posicional_visitante" value="at_posicional_visitante"></div>
+			<hr>
+			<div id="contraataque_visitante" value="contraataque_visitante"></div>
+			<hr>
+			<div id="saquegol_visitante" value="saquegol_visitante"></div>
+			<hr>
+			<div id="perdidas_visitante" value="perdidas_visitante"></div>
+			<hr>
+			<div id="superioridad_visitante" value="superioridad_visitante"></div>
+			<hr>
+			<div id="paradas_visitante" value="paradas_visitante"></div>
+			<hr>
+			<div id="defensa_visitante" value="defensa_visitante"></div>
+			<hr>
+			<div id="ataque_visitante" value="ataque_visitante"></div>
+			<hr>
+			<div id="penalti_visitante" value="penalti_visitante"></div>
+			<hr>
+			<div id="gol7m_visitante" value="gol7m_visitante"></div>
+			<hr>
+			<div id="a7x6_visitante" value="a7x6_visitante"></div>
+		</div>
+		<hr>
+		<p id="categorias5"> SAQUE GOL</p>
+		<p id="categorias6"> CONTRAATAQUE</p>
+		<p id="categorias7"> POSICIONAL</p>
+		<p id="categorias8"> POSICIONAL</p>
+		<p id="categorias9"> CONTRAATAQUE</p>
+		<p id="categorias10"> SAQUE GOL</p>
+		<div id="div_db2_saquegol_local">
+			<div id="db2_paradas_slocal" value="db2_paradas_slocal"></div>
+			<hr>
+			<div id="db2_fuera_slocal" value="db2_fuera_slocal"></div>
+			<hr>
+			<div id="db2_perdidas_slocal" value="db2_perdidas_slocal"></div>
+			<hr>
+			<div id="db2_posesiones_slocal" value="db2_posesiones_slocal"></div>
+			<hr>
+			<div id="db2_porceficacia_slocal" value="db2_eficacia_slocal"></div>
+			<hr>
+			<div id="db2_porclanz_slocal" value="db2_lanz_slocal"></div>
+			<hr>
+			<div id="db2_porcperdidas_slocal" value="db2_porcperdidas_slocal"></div>
+			<hr>		
+		</div>
+		<div id="div_db2_contraataque_local">
+			<div id="db2_paradas_clocal" value="db2_paradas_clocal"></div>
+			<hr>
+			<div id="db2_fuera_clocal" value="db2_fuera_clocal"></div>
+			<hr>
+			<div id="db2_perdidas_clocal" value="db2_perdidas_clocal"></div>
+			<hr>
+			<div id="db2_posesiones_clocal" value="db2_posesiones_clocal"></div>
+			<hr>
+			<div id="db2_porceficacia_clocal" value="db2_eficacia_clocal"></div>
+			<hr>
+			<div id="db2_porclanz_clocal" value="db2_lanz_clocal"></div>
+			<hr>
+			<div id="db2_porcperdidas_clocal" value="db2_porcperdidas_clocal"></div>
+			<hr>		
+		</div>
+		<div id="div_db2_posicional_local">
+			<div id="db2_paradas_plocal" value="db2_paradas_plocal"></div>
+			<hr>
+			<div id="db2_fuera_plocal" value="db2_fuera_plocal"></div>
+			<hr>
+			<div id="db2_perdidas_plocal" value="db2_perdidas_plocal"></div>
+			<hr>
+			<div id="db2_posesiones_plocal" value="db2_posesiones_plocal"></div>
+			<hr>
+			<div id="db2_porceficacia_plocal" value="db2_eficacia_plocal"></div>
+			<hr>
+			<div id="db2_porclanz_plocal" value="db2_lanz_plocal"></div>
+			<hr>
+			<div id="db2_porcperdidas_plocal" value="db2_porcperdidas_plocal"></div>
+			<hr>		
+		</div>
+		<div id="div_stats2">
+			<p> PARADAS </p>
+			<hr>
+			<p> FUERA </p>
+			<hr>
+			<p> PERDIDAS </p>
+			<hr>
+			<p> SAQUE GOL </p>
+			<hr>
+			<p> POSESIONES </p>
+			<hr>
+			<p> %EFICACIA </p>
+			<hr>
+			<p> %LANZ </p>
+			<hr>
+			<p> %PERDIDAS </p>
+		</div>
+		<div id="div_db2_posicional_visitante">
+			<div id="db2_paradas_pvisitante" value="db2_paradas_pvisitante"></div>
+			<hr>
+			<div id="db2_fuera_pvisitante" value="db2_fuera_pvisitante"></div>
+			<hr>
+			<div id="db2_perdidas_pvisitante" value="db2_perdidas_pvisitante"></div>
+			<hr>
+			<div id="db2_posesiones_pvisitante" value="db2_posesiones_pvisitante"></div>
+			<hr>
+			<div id="db2_porceficacia_pvisitante" value="db2_eficacia_pvisitante"></div>
+			<hr>
+			<div id="db2_porclanz_pvisitante" value="db2_lanz_pvisitante"></div>
+			<hr>
+			<div id="db2_porcperdidas_pvisitante" value="db2_porcperdidas_pvisitante"></div>
+			<hr>		
+		</div>
+		<div id="div_db2_contraataque_visitante">
+			<div id="db2_paradas_cvisitante" value="db2_paradas_cvisitante"></div>
+			<hr>
+			<div id="db2_fuera_cvisitante" value="db2_fuera_cvisitante"></div>
+			<hr>
+			<div id="db2_perdidas_cvisitante" value="db2_perdidas_cvisitante"></div>
+			<hr>
+			<div id="db2_posesiones_cvisitante" value="db2_posesiones_cvisitante"></div>
+			<hr>
+			<div id="db2_porceficacia_cvisitante" value="db2_eficacia_cvisitante"></div>
+			<hr>
+			<div id="db2_porclanz_cvisitante" value="db2_lanz_cvisitante"></div>
+			<hr>
+			<div id="db2_porcperdidas_cvisitante" value="db2_porcperdidas_cvisitante"></div>
+			<hr>		
+		</div>
+		<div id="div_db2_saquegol_visitante">
+			<div id="db2_paradas_svisitante" value="db2_paradas_svisitante"></div>
+			<hr>
+			<div id="db2_fuera_svisitante" value="db2_fuera_svisitante"></div>
+			<hr>
+			<div id="db2_perdidas_svisitante" value="db2_perdidas_svisitante"></div>
+			<hr>
+			<div id="db2_posesiones_svisitante" value="db2_posesiones_svisitante"></div>
+			<hr>
+			<div id="db2_porceficacia_svisitante" value="db2_eficacia_svisitante"></div>
+			<hr>
+			<div id="db2_porclanz_svisitante" value="db2_lanz_svisitante"></div>
+			<hr>
+			<div id="db2_porcperdidas_svisitante" value="db2_porcperdidas_svisitante"></div>
+			<hr>		
+		</div>
+		<br>
+		<p id="txt_jugador"> JUGADOR </p>
+		<p id="txt_goles"> GOLES </p>
+		<p id="txt_paradas"> PARADAS</p>
+		<p id="txt_fuera"> FUERA </p>
+		<p id="txt_perdidas"> PERDIDAS </p>
+		<p id="txt_posesiones"> POSESIONES </p>
+		<p id="txt_eficacia"> %EFICACIA</p>
+		<p id="txt_lanz"> %LANZ </p>
+		<p id="txt_porcperdidas"> %PERDIDAS </p>
+		<div id="div_db3_jugador1">
+			<div id="db3_jugador1" value="db3_jugador1"></div>
+			<hr>
+			<div id="db3_goles1" value="db3_goles1"></div>
+			<hr>
+			<div id="db3_paradas1" value="db3_paradas1"></div>
+			<hr>
+			<div id="db3_fuera1" value="db3_fuera1"></div>
+			<hr>
+			<div id="db3_perdidas1" value="db3_perdidas1"></div>
+			<hr>
+			<div id="db3_posesiones1" value="db3_posesiones1"></div>
+			<hr>
+			<div id="db3_eficacia1" value="db3_eficacia1"></div>
+			<hr>
+			<div id="db3_lanz1" value="db3_lanz1"></div>
+			<hr>
+			<div id="db3_porcperdidas1" value="db3_porcperdidas1"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador2">
+			<div id="db3_jugador2" value="db3_jugador2"></div>
+			<hr>
+			<div id="db3_goles2" value="db3_goles2"></div>
+			<hr>
+			<div id="db3_paradas2" value="db3_paradas2"></div>
+			<hr>
+			<div id="db3_fuera2" value="db3_fuera2"></div>
+			<hr>
+			<div id="db3_perdidas2" value="db3_perdidas2"></div>
+			<hr>
+			<div id="db3_posesiones2" value="db3_posesiones2"></div>
+			<hr>
+			<div id="db3_eficacia2" value="db3_eficacia2"></div>
+			<hr>
+			<div id="db3_lanz2" value="db3_lanz2"></div>
+			<hr>
+			<div id="db3_porcperdidas2" value="db3_porcperdidas2"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador3">
+			<div id="db3_jugador3" value="db3_jugador3"></div>
+			<hr>
+			<div id="db3_goles3" value="db3_goles3"></div>
+			<hr>
+			<div id="db3_paradas3" value="db3_paradas3"></div>
+			<hr>
+			<div id="db3_fuera3" value="db3_fuera3"></div>
+			<hr>
+			<div id="db3_perdidas3" value="db3_perdidas3"></div>
+			<hr>
+			<div id="db3_posesiones3" value="db3_posesiones3"></div>
+			<hr>
+			<div id="db3_eficacia3" value="db3_eficacia3"></div>
+			<hr>
+			<div id="db3_lanz3" value="db3_lanz3"></div>
+			<hr>
+			<div id="db3_porcperdidas3" value="db3_porcperdidas3"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador4">
+			<div id="db3_jugador4" value="db3_jugador4"></div>
+			<hr>
+			<div id="db3_goles4" value="db3_goles4"></div>
+			<hr>
+			<div id="db3_paradas4" value="db3_paradas4"></div>
+			<hr>
+			<div id="db3_fuera4" value="db3_fuera4"></div>
+			<hr>
+			<div id="db3_perdidas4" value="db3_perdidas4"></div>
+			<hr>
+			<div id="db3_posesiones4" value="db3_posesiones4"></div>
+			<hr>
+			<div id="db3_eficacia4" value="db3_eficacia4"></div>
+			<hr>
+			<div id="db3_lanz4" value="db3_lanz4"></div>
+			<hr>
+			<div id="db3_porcperdidas4" value="db3_porcperdidas4"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador5">
+			<div id="db3_jugador5" value="db3_jugador5"></div>
+			<hr>
+			<div id="db3_goles5" value="db3_goles5"></div>
+			<hr>
+			<div id="db3_paradas5" value="db3_paradas5"></div>
+			<hr>
+			<div id="db3_fuera5" value="db3_fuera5"></div>
+			<hr>
+			<div id="db3_perdidas5" value="db3_perdidas5"></div>
+			<hr>
+			<div id="db3_posesiones5" value="db3_posesiones5"></div>
+			<hr>
+			<div id="db3_eficacia5" value="db3_eficacia5"></div>
+			<hr>
+			<div id="db3_lanz5" value="db3_lanz5"></div>
+			<hr>
+			<div id="db3_porcperdidas5" value="db3_porcperdidas5"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador6">
+			<div id="db3_jugador6" value="db3_jugador6"></div>
+			<hr>
+			<div id="db3_goles6" value="db3_goles6"></div>
+			<hr>
+			<div id="db3_paradas6" value="db3_paradas6"></div>
+			<hr>
+			<div id="db3_fuera6" value="db3_fuera6"></div>
+			<hr>
+			<div id="db3_perdidas6" value="db3_perdidas6"></div>
+			<hr>
+			<div id="db3_posesiones6" value="db3_posesiones6"></div>
+			<hr>
+			<div id="db3_eficacia6" value="db3_eficacia6"></div>
+			<hr>
+			<div id="db3_lanz6" value="db3_lanz6"></div>
+			<hr>
+			<div id="db3_porcperdidas6" value="db3_porcperdidas6"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador7">
+			<div id="db3_jugador7" value="db3_jugador7"></div>
+			<hr>
+			<div id="db3_goles7" value="db3_goles7"></div>
+			<hr>
+			<div id="db3_paradas7" value="db3_paradas7"></div>
+			<hr>
+			<div id="db3_fuera7" value="db3_fuera7"></div>
+			<hr>
+			<div id="db3_perdidas7" value="db3_perdidas7"></div>
+			<hr>
+			<div id="db3_posesiones7" value="db3_posesiones7"></div>
+			<hr>
+			<div id="db3_eficacia7" value="db3_eficacia7"></div>
+			<hr>
+			<div id="db3_lanz7" value="db3_lanz7"></div>
+			<hr>
+			<div id="db3_porcperdidas7" value="db3_porcperdidas7"></div>
+			<hr>
+		</div>
+		
+		<div id="div_db3_jugador8">
+			<div id="db3_jugador8" value="db3_jugador8"></div>
+			<hr>
+			<div id="db3_goles8" value="db3_goles8"></div>
+			<hr>
+			<div id="db3_paradas8" value="db3_paradas8"></div>
+			<hr>
+			<div id="db3_fuera8" value="db3_fuera8"></div>
+			<hr>
+			<div id="db3_perdidas8" value="db3_perdidas8"></div>
+			<hr>
+			<div id="db3_posesiones8" value="db3_posesiones8"></div>
+			<hr>
+			<div id="db3_eficacia8" value="db3_eficacia8"></div>
+			<hr>
+			<div id="db3_lanz8" value="db3_lanz8"></div>
+			<hr>
+			<div id="db3_porcperdidas8" value="db3_porcperdidas8"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador9">
+			<div id="db3_jugador9" value="db3_jugador9"></div>
+			<hr>
+			<div id="db3_goles9" value="db3_goles9"></div>
+			<hr>
+			<div id="db3_paradas9" value="db3_paradas9"></div>
+			<hr>
+			<div id="db3_fuera9" value="db3_fuera9"></div>
+			<hr>
+			<div id="db3_perdidas9" value="db3_perdidas9"></div>
+			<hr>
+			<div id="db3_posesiones9" value="db3_posesiones9"></div>
+			<hr>
+			<div id="db3_eficacia9" value="db3_eficacia9"></div>
+			<hr>
+			<div id="db3_lanz9" value="db3_lanz9"></div>
+			<hr>
+			<div id="db3_porcperdidas9" value="db3_porcperdidas9"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador10">
+			<div id="db3_jugador10" value="db3_jugador10"></div>
+			<hr>
+			<div id="db3_goles10" value="db3_goles10"></div>
+			<hr>
+			<div id="db3_paradas10" value="db3_paradas10"></div>
+			<hr>
+			<div id="db3_fuera10" value="db3_fuera10"></div>
+			<hr>
+			<div id="db3_perdidas10" value="db3_perdidas10"></div>
+			<hr>
+			<div id="db3_posesiones10" value="db3_posesiones10"></div>
+			<hr>
+			<div id="db3_eficacia10" value="db3_eficacia10"></div>
+			<hr>
+			<div id="db3_lanz10" value="db3_lanz10"></div>
+			<hr>
+			<div id="db3_porcperdidas10" value="db3_porcperdidas10"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador11">
+			<div id="db3_jugador11" value="db3_jugador11"></div>
+			<hr>
+			<div id="db3_goles11" value="db3_goles11"></div>
+			<hr>
+			<div id="db3_paradas11" value="db3_paradas11"></div>
+			<hr>
+			<div id="db3_fuera11" value="db3_fuera11"></div>
+			<hr>
+			<div id="db3_perdidas11" value="db3_perdidas11"></div>
+			<hr>
+			<div id="db3_posesiones11" value="db3_posesiones11"></div>
+			<hr>
+			<div id="db3_eficacia11" value="db3_eficacia11"></div>
+			<hr>
+			<div id="db3_lanz11" value="db3_lanz11"></div>
+			<hr>
+			<div id="db3_porcperdidas11" value="db3_porcperdidas11"></div>
+			<hr>
+		</div>
+		<div id="div_db3_jugador12">
+			<div id="db3_jugador12" value="db3_jugador12"></div>
+			<hr>
+			<div id="db3_goles12" value="db3_goles12"></div>
+			<hr>
+			<div id="db3_paradas12" value="db3_paradas12"></div>
+			<hr>
+			<div id="db3_fuera12" value="db3_fuera12"></div>
+			<hr>
+			<div id="db3_perdidas12" value="db3_perdidas12"></div>
+			<hr>
+			<div id="db3_posesiones12" value="db3_posesiones12"></div>
+			<hr>
+			<div id="db3_eficacia12" value="db3_eficacia12"></div>
+			<hr>
+			<div id="db3_lanz12" value="db3_lanz12"></div>
+			<hr>
+			<div id="db3_porcperdidas12" value="db3_porcperdidas12"></div>
+			<hr>
+		</div>
+		
+	</form>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- KNOCKOUT -->
+	<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+	<script src="mapasRendimiento.js"></script>
+	
+	<!-- Excel -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
