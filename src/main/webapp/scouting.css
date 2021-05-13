@@ -1,0 +1,105 @@
+* {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif, 'Consolas';
+}
+
+body {
+	font-family: sans-serif;
+	background-image: url(images/fondo_liso.JPG);
+	background-size: 115%;
+}
+
+.boxHeader {
+	max-width: 100%;
+	width: 95%;
+	height: 13%;
+	padding: 10px;
+	position: absolute;
+	top: 4%;
+	left: 48%;
+	transform: translate(-50%, -50%);
+	background: #93B9F3;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+	color: black;
+	font-size: 42px;
+	text-align: center;
+	border-radius: 25px;
+	flex-wrap: wrap;
+	margin: 20px;
+	opacity:0.85;
+}
+
+.boxHeader button[value="volver"] {
+	border: 2px;
+	border-color: #ac0606;
+	opacity: 0.9;
+	width: 15%;
+	font-size: 15px;
+	text-align: center;
+	padding: 10px;
+	outline: none;
+	background: #e74141a4;
+	color: black;
+	border-radius: 18px;
+	transition: 0.25s;
+	cursor: pointer;
+	display: inline;
+	float: right;
+	margin-right: 8px;
+	margin-top: 10px;
+}
+
+.boxHeader button[value="volver"]:hover {
+	background: #af4a4a;
+	color: whitesmoke;
+	transform: scale(0.9);
+}
+
+.boxBody {
+	max-width: 100%;
+	width: 95%;
+	height: 85%;
+	padding: 15px;
+	position: absolute;
+	top:54%;
+	left: 48%;
+	transform: translate(-50%, -50%);
+	background: #283A3E;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+	color: white;
+	text-align: left;
+	border-radius: 25px;
+	flex-wrap: wrap;
+	margin: 20px;
+	opacity: 0.95;
+}
+
+.boxBody a[id="plantilla"] {
+	color:  white;
+	font-size: 16px;
+	float: center;
+	text-align: center;
+	margin-left:35%;
+}
+
+.boxBody a[id="manual"] {
+	color:  white;
+	font-size: 16px;
+	float: right;
+	text-align: center;
+	margin-top:0.35%;
+}
+
+
+.boxBody div[value="no_disponible"] {
+	background-color: #CEF092;
+	width: 70%;
+	height: 15%;
+	margin-left:15%;
+	color:  black;
+	font-size: 16px;
+	float: center;
+	text-align: center;
+	margin-top:10%;
+	border-radius: 20px;
+}

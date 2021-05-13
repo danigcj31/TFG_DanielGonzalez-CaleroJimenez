@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- CUSTOM CSS -->
+<link rel="stylesheet" href="style.css">
+<title>HPDA</title>
+<link rel="shortcut icon" href="http://example.com/myicon.ico" />
+<!-- ICONOS -->
+<script src="https://kit.fontawesome.com/2fdbb0a0af.js" crossorigin="anonymous"></script>
+<!-- FAVICON -->
+<link rel="icon" href="images/logo.PNG" type="image/ico"/>
+</head>
+
+<body>
+<!-- Trigger/Open The Modal -->
+	<!-- CABECERA -->
+	<form class="col-md-6 col-sm-8 col-xl-6 col-lg-4 boxHeader" action="index.html" method="post">
+		<button type="button" name="" value="registro" onclick="window.location.href='/perfil.html'" id="btnPerfil"><img src="images/perfil.png" width="80%"/></button>
+		<b>Handball  Performance  Data  Analisis (VIP)</b>
+		<br>
+		<div>
+		<h4><i>by BIDEA                   </i><img src="images/BIDEA.JPG" width="4%" alt="imgBIDEA"></h4>
+		</div>
+	</form>
+	
+	<!-- MENÚ -->
+	<form class="col-md-6 col-sm-8 col-xl-6 col-lg-4 boxMenu" action="index.html" method="post">
+		<button type="button" name="" value="mapas" onclick="window.location.href='/mapasRendimiento.html'" id="btnMapas">MAPAS DE RENDIMIENTO</button>
+		<button type="button" name="" value="scoring" onclick="window.location.href='/scoring.html'" id="btnScoring">SCORING</button>
+		<button type="button" name="" value="plusminus" onclick="window.location.href='/plusminus.html'" id="btnPlusMinus">PLUS-MINUS</button>
+		<button type="button" name="" value="scouting" onclick="window.location.href='/scouting.html'" id="btnScouting">SCOUTING</button>
+	</form>
+	
+	<!-- PORTADA -->
+	<form class="col-md-6 col-sm-8 col-xl-6 col-lg-4 boxTexto" action="index.html" method="post">
+		<h3><b>¿Quiénes somos?</b></h3>
+		<h4>BIDEA (Balonmano Investigación y Análisis de Estadística Avanzada) es un grupo de investigación formado por Eusebio Angulo, Francisco Pascual Romero, Imanol Álvarez, 
+		Álex Barbolás y Daniel González-Calero, trabaja el análisis estadístico en el mundo del balonmano 
+		en todas sus formas con el objetivo de obtener cierta ventaja competitiva gracias a la explotación
+		de datos y sus posteriores análisis.</h4>
+		<hr>
+		<h3><b>¿Qué es HPDA?</b></h3>
+		<h4>HPDA es una herramienta software que ofrece al usuario una gran variedad de datos e información 
+		en forma de gráficas y dashboards a partir de un único archivo .csv. El objetivo de esta herramientas es 
+		realizar una explotación de los datos y estadísticas durante partidos de balonmano, de forma que 
+		evalúe el rendimiento individual y colectivo de los jugadores, ayudando a la toma de decisiones de 
+		los entrenadores para conseguir el mayor rendimiento deportivo.</h4>
+		<hr>
+		<div id="div" style="border:4px solid #5AC031; border-radius:5px">
+		<h3><b>Mapas de Rendimiento</b></h3>
+		<h4>El objetivo de los mapas de rendimiento es ofrecer al entrenador en el descanso, casi en tiempo real, un grafo donde se muestran las zonas de juego 
+		y la relevancia que están teniendo en un partido, donde los nodos representan el número de goles y la eficacia en cada zona (opacidad del nodo), y donde las
+		flechas representan las zonas de pase, siendo las más oscuras aquellas que se han repetido mayor número de veces.</h4>
+		<img src="images/imgMapas.jpeg" width="65%" alt="imgMapas">
+		</div>
+		<div id="div" style="border:4px solid #3199DE; border-radius:5px">
+		<h3><b>Scoring</b></h3>
+		<h4>El scoring permite una evaluación de las valoraciones de los jugadores en un equipo a lo largo de 
+		toda una temporada, incluso de las valoraciones de un equipop de toda una temporada. Con esta técnica es 
+		posible determinar mejoras en el rendimiento de un colectivo a lo largo de una temporada.</h4>
+		<img src="images/scoring.JPG" width="65%" alt="imgScoring">
+		</div>
+		<div id="div" style="border:4px solid #FCA02C; border-radius:5px">
+		<h3><b>Plus-Minus</b></h3>
+		<h4>El Plus-Minus es un indicador de la importancia que tiene un jugador en su equipo. Mide su aportación
+		 al rendimiento total del conjunto a través de sus estadísticas por cada X posesiones.</h4>	
+		<img src="images/imgPlusminus.jpg" width="65%" alt="imgPlusminus">	
+		</div>
+		<div id="div" style="border:4px solid #CE2B46; border-radius:5px">
+		<h3><b>Scouting</b></h3>
+		<h4>El objetivo del scouting es ofrecer al usuario, a través de las técnicas plus-minus y 
+		scoring, la posibilidad de comparar entre distintos jugadores o grupos de jugadores para obtener una comparativa 
+		de rendimientos, eficacias, valoraciones, etc. El scouting es comunmente utilizado por directores deportivos
+		para realizar fichajes de acuerdo a unos parámetros específicos y es utilizado por entrenadores para evaluar
+		de forma más precisa a los jugadores de los equipos rivales.</h4>
+		<img src="images/imgScouting.jpg" width="65%" alt="imgScouting">
+		</div>
+	</form>
+	
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="popupLogin">
+    <div class="modal-body">
+		<span class="close">&times;</span>
+		<img src="images/logo.PNG" width="70%" alt="logoLogin">
+		<br><br>
+		<input type="text" class="btnForm" id="username" name="username" autocomplete="off" required="required" type="text" placeholder="Nombre de usuario"/> 
+ 		<br>
+		<input type="password" class="btnForm" id="pwd1" required="required" type="password" placeholder="Contrasena" autocomplete="off"/>
+		<br>
+		<button type="button" class="btnLogin" value="login" onclick="" id="btnLogin">LOG IN</button>
+	</div>
+  </div>
+</div>
+
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("btnLogin");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- KNOCKOUT -->
+	<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+	<script src="login.js"></script>
+</body>
+</html>
