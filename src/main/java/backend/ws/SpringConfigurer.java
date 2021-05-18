@@ -19,10 +19,8 @@ public class SpringConfigurer implements WebSocketConfigurer {
     return container;
   }
     
-
   public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
     SpringWebSocket webSocket = new SpringWebSocket();
     registry.addHandler(webSocket, "hpda").setAllowedOrigins("*");
   }
-
 }
