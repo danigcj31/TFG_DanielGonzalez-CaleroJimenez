@@ -26,11 +26,12 @@ let register = function() {
 	document.getElementById("pwd2").style.backgroundColor = "transparent";
 	document.getElementById("name").style.backgroundColor = "transparent";
 	document.getElementById("apellidos").style.backgroundColor = "transparent";
+	var username = injectionSQL($('#username').val());
 	
 	if (contrasenaValida($('#pwd1').val())) {
 		const info = {
 			type: 'register',
-			username: $('#username').val(),
+			username: username,
 			email: $('#email').val(),
 			pwd1: $('#pwd1').val(),
 			pwd2: $('#pwd2').val(),
@@ -117,3 +118,16 @@ $(document).ready(function (){
 		reader.readAsDataURL(file);
 	});
 });
+
+
+function injectionSQL(text) {
+	var map = {
+	'&': '&amp;',
+	'<': '&lt;',
+	'>': '&gt;',
+	'"': '&quot;',
+	"'": '&#039;',
+	'"\"': '&#92;'
+	};
+	return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
